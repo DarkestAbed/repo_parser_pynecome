@@ -1,0 +1,8 @@
+# files
+*.db
+*.py[cod]
+*.pyc
+# folders
+.web/
+__pycache__/
+venv/
