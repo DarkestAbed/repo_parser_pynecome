@@ -1,12 +1,12 @@
 import reflex as rx
 
 from repo_parser_pynecone.components.add_repo_bar import add_repo_bar
+from repo_parser_pynecone.components.repo_list import full_repo_retrieval
 
 from rxconfig import config
 
 
-docs_url = "https://reflex.dev/docs/getting-started/introduction"
-filename = f"{config.app_name}/{config.app_name}.py"
+backend_url = "http://127.0.0.1:8080"
 
 
 class State(rx.State):
@@ -21,24 +21,9 @@ def index() -> rx.Component:
         rx.vstack(
             rx.heading("RepoParser", font_size="2em"),
             add_repo_bar(),
-            rx.box("Get started by editing ", rx.code(filename, font_size="1em")),
-            rx.link(
-                "Check out our docs!",
-                href=docs_url,
-                border="0.1em solid",
-                padding="0.5em",
-                border_radius="0.5em",
-                _hover={
-                    "color": rx.color_mode_cond(
-                        light="rgb(107,99,246)",
-                        dark="rgb(179, 175, 255)",
-                    )
-                },
-            ),
-            spacing="1.5em",
-            font_size="2em",
-            padding_top="10%",
-        ),
+            rx.divider(),
+            rx.text(full_repo_retrieval(base_url=backend_url))
+        )
     )
 
 

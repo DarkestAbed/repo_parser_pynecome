@@ -4,5 +4,5 @@ class RepoparserpyneconeConfig(rx.Config):
     pass
 
 config = RepoparserpyneconeConfig(
-    app_name="repo_parser_pynecone",
+    app_name="RepoParser",
 )
